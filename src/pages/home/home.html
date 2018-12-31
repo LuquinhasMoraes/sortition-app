@@ -1,17 +1,49 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Sortition App</ion-title>
   </ion-navbar>
 </ion-header>
+  <ion-content class="cards-bg">
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+    <ion-card>
+  
+      <div>
+        <img [src]="sorteado?.foto" height="200" />
+      </div>
+  
+      <ion-card-content>
+        <ion-card-title>
+          {{sorteado?.nome}}
+        </ion-card-title>
+        <p>
+        Após a saída do Victor, a Lawsoft precisa de um novo inciador de Daily. Para isso foi criado o Sorteio daily, que definirá quem começará a reunião.
+        </p>
+      </ion-card-content>
+  
+      <ion-row no-padding>
+        <!-- <ion-col>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='star'></ion-icon>
+            Favorite
+          </button>
+        </ion-col> -->
+        <ion-col text-center>
+          <button *ngIf="numeroSorteados == 0" ion-button block color="primary" (click)="resetar()" icon-start>
+            <ion-icon name='shuffle'></ion-icon>
+            Reiniciar
+          </button>
+          <button [disabled]="sorteando || numeroSorteados < 1" ion-button block color="danger" (click)="sortear()" icon-start>
+            <ion-icon name='people'></ion-icon>
+            Sortear
+          </button>
+        </ion-col>
+        <!-- <ion-col text-right>
+          <button ion-button clear small color="danger" icon-start>
+            <ion-icon name='share-alt'></ion-icon>
+            Share
+          </button>
+        </ion-col> -->
+      </ion-row>
+  
+    </ion-card>
 </ion-content>
